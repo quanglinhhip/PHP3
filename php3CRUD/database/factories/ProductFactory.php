@@ -22,6 +22,8 @@ class ProductFactory extends Factory
             'name' => fake()->text(50),
             'sku' => strtoupper(Str::random(8)),
             'img_thumb' => fake()->imageUrl(320, 240),
+            'price' => fake()->numberBetween(100000, 10000000),
+            'quantity' => fake()->numberBetween(1, 100),
             'overview' => fake()->text(200),
             'content' => fake()->text(200),
 

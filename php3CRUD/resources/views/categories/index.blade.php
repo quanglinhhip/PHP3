@@ -24,18 +24,16 @@
                     </td> --}}
                     <td>{{ $item->name }}</td>
 
-                    <td>{{ $item->category->name }}</td>
-
-                    {{-- <td>
-                        <a href="{{ route('products.show', $item) }}" class="btn btn-info mt-2">Show</a>
-                        <a href="{{ route('products.edit', $item) }}" class="btn btn-warning mt-2">Edit</a>
-                        <form action="{{ route('products.destroy', $item) }}" method="POST">
+                    <td>
+                        <a href="{{ route('categories.show', $item) }}" class="btn btn-info mt-2">Show</a>
+                        <a href="{{ route('categories.edit', $item) }}" class="btn btn-warning mt-2">Edit</a>
+                        <form action="{{ route('categories.destroy', $item) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger mt-2"
                                 onclick="return confirm('Bạn có chắc chắn muốn xoá không?')">Delete </button>
                         </form>
-                    </td> --}}
+                    </td>
                 </tr>
             @endforeach
         </tbody>

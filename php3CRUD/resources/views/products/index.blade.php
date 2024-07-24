@@ -13,6 +13,8 @@
                 <th class="bg-primary text-white">IMG THUMB </th>
                 <th class="bg-primary text-white">NAME</th>
                 <th class="bg-primary text-white">SKU</th>
+                <th class="bg-primary text-white">PRICE</th>
+                <th class="bg-primary text-white">QUANTITY</th>
                 <th class="bg-primary text-white">CATEGORY</th>
                 <th class="bg-primary text-white">OVERVIEW</th>
                 <th class="bg-primary text-white">ACTION</th>
@@ -27,6 +29,8 @@
                     </td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->sku }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->quantity }}</td>
                     <td>{{ $item->category->name }}</td>
                     <td>{{ $item->overview }}</td>
                     <td>

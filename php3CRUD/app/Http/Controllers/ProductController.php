@@ -26,6 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         $categories = Category::query()->pluck('name', 'id')->all();
         // dd($categories);
         return view('products.create', compact('categories'));
@@ -36,6 +37,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_id' => 'required',
+            'name' => 'required|string|max:255',
+            'sku' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:0',
+            'img_thumb' => 'nullable|image|mimes:jpeg,png,jpg',
+            'overview' => 'nullable|string',
+            'content' => 'nullable|string',
+        ]);
+
         $data = $request->except('img_thumb');
         if ($request->hasFile('img_thumb')) {
             $pathFile = Storage::putFile('products', $request->file('img_thumb'));
