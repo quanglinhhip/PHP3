@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::resource('games', GameController::class);
+// Xóa mềm
+Route::post('games/{game}/soft-delete', [GameController::class, 'softDelete'])->name('games.soft-delete');

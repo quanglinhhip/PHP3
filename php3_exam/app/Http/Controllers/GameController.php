@@ -98,6 +98,20 @@ class GameController extends Controller
             unlink(public_path($game->cover_art));
         }
         $game->delete();
-        return back()->with('success', 'Xoá thành công');
+        return back()->with('success', 'Xoá cứng thành công');
+    }
+
+    // Xóa mềm
+    public function softDelete(Game $game)
+    {
+        // Xóa file ảnh nếu có
+        if ($game->cover_art && file_exists(public_path($game->cover_art))) {
+            unlink(public_path($game->cover_art));
+        }
+
+        // Xóa mềm
+        $game->delete();
+
+        return back()->with('success', 'Xoá mềm thành công');
     }
 }

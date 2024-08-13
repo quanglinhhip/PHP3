@@ -3,6 +3,15 @@
     Thêm mới trò chơi
 @endsection
 @section('content')
+    {{-- @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif --}}
     <form action="{{ route('games.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 mt-3">
@@ -13,7 +22,6 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-
 
         <div class="mb-3 mt-3">
             <label for="cover_art" class="form-label">Image: </label>

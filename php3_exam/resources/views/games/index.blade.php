@@ -33,10 +33,21 @@
                     <td>
                         <a href="{{ route('games.show', $item) }}" class="btn btn-primary">Chi tiết</a>
                         <a href="{{ route('games.edit', $item) }}" class="btn btn-warning">Sửa</a>
+
+                        {{-- xoá cứng --}}
                         <form action="{{ route('games.destroy', $item) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('R u sure?')">Xoá</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('R u sure?')">Xoá
+                                cứng</button>
+                        </form>
+
+                        {{-- Xoá mềm --}}
+                        <form action="{{ route('games.soft-delete', $item) }}" method="POST">
+                            @csrf
+
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('R u sure?')">Xoá
+                                mềm</button>
                         </form>
                     </td>
                 </tr>
